@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{03EA28D5-2D90-D2DD-D6BD-871C4BEBD18C}</ProjectGuid>
+    <ProjectGuid>{AAFBF485-CF0D-CC65-CFCA-4049B4A8E5F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.Timeline.Editor</AssemblyName>
@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.15f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\inspectors\AnimationPlayableAssetInspector.cs" />
@@ -259,8 +259,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Signals\TreeView\SignalReceiverItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\Move\MovingItems.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\Move\MoveItemModeReplace.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\inspectors\TrackAssetInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Window\PlaybackScroller.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\inspectors\TrackAssetInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Utilities\Scopes\GUIGroupScope.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Actions\MarkerActions.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Utilities\AnimatedParameterUtility.cs" />
@@ -544,6 +544,9 @@
     </Reference>
     <Reference Include="UnityEditor.Graphs">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.15f2\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.15f2\Editor\Data\PlaybackEngines\WebGLSupport\UnityEditor.WebGL.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.15f2\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
@@ -923,15 +926,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{6E95D722-925F-DBFA-894C-95448C842380}</Project>
+      <Project>{82AEEE62-BDDC-6BB5-7ACA-47A7F99B59AE}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{E7716B68-DCE3-5EC1-E023-7F76A028CBFE}</Project>
+      <Project>{824ED654-FE72-821C-BF01-CB574BFFA336}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{F2752105-981B-E6B3-74A1-7FC32C2ABB9B}</Project>
+      <Project>{F9CEDED8-433E-8457-F184-E9DD132F661B}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
