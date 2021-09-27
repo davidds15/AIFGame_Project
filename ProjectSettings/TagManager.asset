@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PintuStage1
+  - Creep
+  - Wall
+  - Peluru
   layers:
   - Default
   - TransparentFX

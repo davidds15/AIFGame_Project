@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody player;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 5.0f;
     private Animator animator;
 
     private void Start()
