@@ -36,14 +36,14 @@ public class PlayerMovement : MonoBehaviour
         }        
     }
 
-    void OnCollisionEnter(Collision col)
-    {
-        if(GameObject.FindGameObjectWithTag("FinalSpot"))
-        {
-            SceneManager.LoadScene("SampleScene");
+    //void OnCollisionEnter(Collision col)
+    //{
+    //    if(GameObject.FindGameObjectWithTag("FinalSpot"))
+    //    {
+    //        SceneManager.LoadScene("SampleScene");
 
-        }
-    }
+    //    }
+    //}
 
     public void Move()
     {
