@@ -7,6 +7,8 @@ public class CreepHealth : MonoBehaviour
     // Start is called before the first frame update
     public int health = 100;
     public int damage = 10;
+    public string TagPintu;
+
     void Start()
     {
         
@@ -17,7 +19,7 @@ public class CreepHealth : MonoBehaviour
         if (col.gameObject.tag == "Peluru")
         {
             health -= damage;
-        }
+        }        
     }
     // Update is called once per frame
     void Update()
@@ -25,7 +27,12 @@ public class CreepHealth : MonoBehaviour
         if(health<=0)
         {
             Destroy(gameObject);
-            Destroy(GameObject.FindWithTag("PintuStage1"));
+            //Destroy(GameObject.FindWithTag("PintuStage1"));
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(TagPintu);
+            foreach (GameObject enemy in enemies)
+            GameObject.Destroy(enemy);
+
         }
     }
 }
