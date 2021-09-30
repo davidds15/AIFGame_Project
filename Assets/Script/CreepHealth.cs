@@ -15,7 +15,7 @@ public class CreepHealth : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log(health);
+        //Debug.Log(health);
         if (col.gameObject.tag == "Peluru")
         {
             health -= damage;

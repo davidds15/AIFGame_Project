@@ -8,8 +8,10 @@ public class Pathfinding : MonoBehaviour {
     public Transform StartPosition;//Starting position to pathfind from
     public Transform TargetPosition;//Starting position to pathfind to
 
+    public List<Node> FinalPath;
     private void Awake()//When the program starts
     {
+        
         GridReference = GetComponent<Grid>();//Get a reference to the game manager
     }
 
@@ -74,7 +76,7 @@ public class Pathfinding : MonoBehaviour {
 
     void GetFinalPath(Node a_StartingNode, Node a_EndNode)
     {
-        List<Node> FinalPath = new List<Node>();//List to hold the path sequentially 
+        FinalPath = new List<Node>();//List to hold the path sequentially 
         Node CurrentNode = a_EndNode;//Node to store the current node being checked
 
         while(CurrentNode != a_StartingNode)//While loop to work through each node going through the parents to the beginning of the path
@@ -83,9 +85,11 @@ public class Pathfinding : MonoBehaviour {
             CurrentNode = CurrentNode.ParentNode;//Move onto its parent node
         }
 
-        FinalPath.Reverse();//Reverse the path to get the correct order
-
-        GridReference.FinalPath = FinalPath;//Set the final path
+        
+                
+        FinalPath.Reverse();//Reverse the path to get the correct order        
+        
+        GridReference.FinalPath = FinalPath;//Set the final path                        
 
     }
 

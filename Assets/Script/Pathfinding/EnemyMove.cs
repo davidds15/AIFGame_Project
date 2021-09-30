@@ -4,36 +4,40 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public List<GameObject> wayPoints = new List<GameObject>();
+    GameObject obj;
+    public List<Node> nodes = new List<Node>();
+    Rigidbody rb;
+    public float moveSpeed = 5;
+    Vector3 moveVec = Vector3.zero;
 
-    public float speed;
-    private Transform target;
-    int waypointIndex = 0;
+    public string Astar;
 
+    public bool status = false;
     private void Start()
     {
-        target = List[waypointIndex].transform;
-        waypointIndex++;
+        rb = GetComponent<Rigidbody>();
+        obj = GameObject.FindGameObjectWithTag(Astar);
+
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        // The step size is equal to speed times frame time.
-        float step = speed * Time.deltaTime;
+        nodes = obj.GetComponent<Pathfinding>().FinalPath;
+        int currentIdx = 0;
+        int someTreshold = 1;
+        Node nextPoint = nodes[currentIdx];
 
-        // Move our position a step closer to the target.
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-
-        //If we arrive to the target, get the new target
-        if (this.transform.position == target.position)
+        if (status == true)
         {
-            waypointIndex++;
-            //if it is the last element, go to the first one again
-            if (wayPointIndex > List.Count())
-            {
-                wayPointIndex = 0;
+            transform.position += (nodes[0].vPosition - transform.position).normalized * Time.deltaTime * moveSpeed;
+
+            if (Vector3.Distance(transform.position, nextPoint.vPosition) < someTreshold)
+            {  //Next point in list has been reached
+                currentIdx += 1;  //Count the index one up
+                nextPoint = nodes[currentIdx];  //Get the next Vector of the list and store it
             }
-            target = List[waypointIndex].transform;
         }
     }
+
+
 }

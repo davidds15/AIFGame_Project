@@ -13,6 +13,15 @@ TagManager:
   - Boss
   - PintuFinal
   - FinalSpot
+  - Astar
+  - Health
+  - Trigger1
+  - TriggerBoss
+  - Trigger2
+  - Trigger3
+  - Astar2
+  - Astar3
+  - Astar4
   layers:
   - Default
   - TransparentFX
