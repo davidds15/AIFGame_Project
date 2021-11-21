@@ -19,6 +19,8 @@ public class Shoot : MonoBehaviour
         {
             Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
             instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+
+            Destroy(instantiatedProjectile.gameObject, 1);
         }
     }
     void OnCollisionEnter(Collision col)

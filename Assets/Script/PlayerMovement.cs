@@ -33,20 +33,26 @@ public class PlayerMovement : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        }        
+
+            animator.SetBool("Iswalking",true);
+        }
+        else
+        {
+            animator.SetBool("Iswalking", false);
+        }
     }
 
-    //void OnCollisionEnter(Collision col)
-    //{
-    //    if(GameObject.FindGameObjectWithTag("FinalSpot"))
-    //    {
-    //        SceneManager.LoadScene("SampleScene");
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "FinalSpot")
+        {
+            SceneManager.LoadScene("Win");
 
-    //    }
-    //}
+        }
+    }
 
     public void Move()
     {
-
+        
     }
 }
