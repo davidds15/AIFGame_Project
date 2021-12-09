@@ -19,7 +19,9 @@ public class IdleBehaviour : StateMachineBehaviour
         Vector3 distance = player.transform.position - animator.transform.position;
         float satisfactionDistance = 10;
 
-        if (distance.magnitude <= satisfactionDistance)
+        bool targetSensed = animator.GetComponent<Sensor>().targetSensed;
+
+        if (distance.magnitude <= satisfactionDistance || targetSensed == true)
         {
             animator.SetBool("Iswalking", true);
         }

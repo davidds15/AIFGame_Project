@@ -6,4 +6,7 @@ public class SelectObject : MonoBehaviour
 {
     public GameObject resetPoint;
     public GameObject Astar;
+
+    public int rotationResetY;
+    
 }

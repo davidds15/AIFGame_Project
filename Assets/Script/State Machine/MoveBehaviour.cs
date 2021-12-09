@@ -7,10 +7,12 @@ public class MoveBehaviour : StateMachineBehaviour
     GameObject player;
     List<Node> nodes;
     int movespeed = 2;
+    int counter = 0;
 
     GameObject Astar;
     GameObject ResetPoint;
 
+    bool statusWalk = true;
     Quaternion lookAtSlowly(Transform t, Vector3 target, float speed)
     {
         Vector3 relativePos = target - t.position;
@@ -27,6 +29,7 @@ public class MoveBehaviour : StateMachineBehaviour
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+       
         nodes = Astar.GetComponent<Pathfinding>().finalPath;
         int currentIdx = 0;
         int someTreshold = 1;
@@ -48,7 +51,9 @@ public class MoveBehaviour : StateMachineBehaviour
             currentIdx += 1;
             nextPoint = nodes[currentIdx];
         }
+        
 
+        //Decision Making
         Vector3 distance = player.transform.position - animator.transform.position;
         float satisfactionDistance = 3;
 
@@ -57,6 +62,30 @@ public class MoveBehaviour : StateMachineBehaviour
             animator.SetBool("Isattacking", true);
         }
 
+        //Sensor Reset
+        bool PlayerSensed = animator.GetComponent<Sensor>().targetSensed;
+        //if(PlayerSensed == true)
+        //{
+        //    statusWalk = true;
+        //}
+        //else
+        //{
+        //    statusWalk = false;
+        //}
+
+        //if(statusWalk == false && PlayerSensed == false)
+        //{
+        //    counter++;
+        //    if(counter >= 50)
+        //    {
+        //        Astar.GetComponent<Pathfinding>().targetPos = ResetPoint.transform;
+        //        Astar.GetComponent<Grid>().targetPos = ResetPoint.transform;
+
+        //        statusWalk = true;
+        //    }
+        //}
+
+        
         //RESET
         Vector3 Resetdistance = ResetPoint.transform.position - animator.transform.position;
         float satisfactionDistanceReset = 30;
@@ -67,19 +96,22 @@ public class MoveBehaviour : StateMachineBehaviour
         }
         else if(Resetdistance.magnitude <= 3)
         {
+            statusWalk = false;
             Astar.GetComponent<Pathfinding>().targetPos = player.transform;
             Astar.GetComponent<Grid>().targetPos = player.transform;
 
-            Quaternion target = Quaternion.Euler(0, 180, 0);
+            int radiusReset = animator.GetComponent<SelectObject>().rotationResetY;
+            Quaternion target = Quaternion.Euler(0, radiusReset, 0);
             animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, target, Time.deltaTime * movespeed);
 
             animator.SetBool("Iswalking", false);
-        }        
-
+        }                       
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
     }
+
+
 }
