@@ -59,7 +59,7 @@ public class MoveBehaviour : StateMachineBehaviour
 
         //RESET
         Vector3 Resetdistance = ResetPoint.transform.position - animator.transform.position;
-        float satisfactionDistanceReset = 50;
+        float satisfactionDistanceReset = 30;
         if (Resetdistance.magnitude >= satisfactionDistanceReset)
         {
             Astar.GetComponent<Pathfinding>().targetPos = ResetPoint.transform;
