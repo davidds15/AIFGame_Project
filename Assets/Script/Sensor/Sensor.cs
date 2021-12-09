@@ -23,15 +23,14 @@ public class Sensor : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
     }
 
     private IEnumerator SensoryRoutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
 
-        while (true)
+        while(true)
         {
             yield return wait;
             Sensorcheck();
@@ -42,16 +41,17 @@ public class Sensor : MonoBehaviour
     {
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
-        if (rangeChecks.Length != 0)
+        if(rangeChecks.Length != 0)
         {
             targetGO = rangeChecks[0].transform;
             Vector3 directionTotarget = (targetGO.position - transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, directionTotarget) < angle / 2)
+            if(Vector3.Angle(transform.forward, directionTotarget) < angle / 2)
             {
-                float distanceTotarget = Vector3.Distance(transform.position, targetGO.position);
+                float distanceTotarget = Vector3.Distance(transform.position, targetGO.position);                
 
-                if (!Physics.Raycast(transform.position, directionTotarget, distanceTotarget, obstacleMask))
+                //if (!Physics.Raycast(transform.position, directionTotarget, distanceTotarget, obstacleMask))
+                if(!Physics.Raycast(transform.position,directionTotarget,distanceTotarget,obstacleMask))
                 {
                     targetSensed = true;
                 }
@@ -65,7 +65,7 @@ public class Sensor : MonoBehaviour
                 targetSensed = false;
             }
         }
-        else if (targetSensed)
+        else if(targetSensed)
         {
             targetSensed = false;
         }

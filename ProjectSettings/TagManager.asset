@@ -22,11 +22,13 @@ TagManager:
   - Astar2
   - Astar3
   - Astar4
+  - ResetCreep1
+  - NextLevel
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - OBSTACLE
   - Water
   - UI
   - Wall

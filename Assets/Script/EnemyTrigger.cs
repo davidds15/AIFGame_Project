@@ -16,7 +16,7 @@ public class EnemyTrigger : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            obj.GetComponent<EnemyMove>().status = true;
+            obj.GetComponent<EnemyMove>().PlayerSeen = true;
 
             Destroy(gameObject);
         }

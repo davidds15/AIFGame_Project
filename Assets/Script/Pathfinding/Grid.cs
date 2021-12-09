@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-
     public Transform startPos;
     public Transform targetPos;
 
@@ -98,8 +97,7 @@ public class Grid : MonoBehaviour
         if (nodeGrid != null)
         {
             Node PlayerNode = NodeFromWorldPoint(startPos.position);
-            Node targetNode = NodeFromWorldPoint(targetPos.position);
-            Debug.Log(PlayerNode);
+            Node targetNode = NodeFromWorldPoint(targetPos.position);           
             foreach (Node n in nodeGrid)
             {
                 if (n.IsWall)

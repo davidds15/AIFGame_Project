@@ -47,7 +47,10 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.tag == "FinalSpot")
         {
             SceneManager.LoadScene("Win");
-
+        }
+        if (col.gameObject.tag == "NextLevel")
+        {
+            SceneManager.LoadScene("Level2");
         }
     }
 
